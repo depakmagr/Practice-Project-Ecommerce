@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Carousel
 
 
 def home(request):
-    return render(request, template_name="index.html")
+    context = {"title": "Shoe Attic", "image": Carousel.objects.all()}
+    return render(request, "index.html", context)
 
 
 def shop(request):
