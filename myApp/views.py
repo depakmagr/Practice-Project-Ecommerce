@@ -1,14 +1,16 @@
 from django.shortcuts import render
-from .models import Carousel
+from .models import Carousel, Product
 
 
 def home(request):
-    context = {"title": "Shoe Attic", "image": Carousel.objects.all()}
+    product = Product.objects.all()
+    context = {"title": "Shoe Attic", "image": Carousel.objects.all(), "products": product}
     return render(request, "index.html", context)
 
 
-def shop(request):
-    return render(request, template_name="shop.html")
+def category(request):
+    context = {"products": Product.objects.all()}
+    return render(request, 'category.html', context)
 
 
 def single_product(request):
