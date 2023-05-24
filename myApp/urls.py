@@ -2,11 +2,12 @@ from django.urls import path
 from .views import home, category, single_product, cart, checkout, about, contact
 from django.conf.urls.static import static
 from django.conf import settings
+from .import views
 
 
 urlpatterns = [
     path("", home, name="index"),
-    path("single-product/", single_product, name="single_product"),
+    path("single-product/<int:id>/", views.single_product, name="single_product"),
     path("checkout/", checkout, name="checkout"),
     path("category/", category, name="category"),
     path("cart/", cart, name="cart"),

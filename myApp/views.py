@@ -13,8 +13,11 @@ def category(request):
     return render(request, 'category.html', context)
 
 
-def single_product(request):
-    return render(request, template_name="single_product.html")
+def single_product(request, id):
+    product = Product.objects.get(id=id)
+    products = Product.objects.all()
+    context = {"product": product, "products": products}
+    return render(request, 'single_product.html', context)
 
 
 def cart(request):
