@@ -35,3 +35,11 @@ def about(request):
 def contact(request):
     return render(request, template_name="contact.html")
 
+
+def login(request):
+    return render(request, template_name="account/login.html")
+
+
+def signup(request):
+    return render(request, template_name="account/signup.html")
+
